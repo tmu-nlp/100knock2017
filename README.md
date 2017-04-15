@@ -17,4 +17,5 @@
 
 # みんなの進捗
 ![progress](https://github.com/tmu-nlp/100knock2017/blob/master/progress.png)
-※手動更新なので、すぐには反映されません。
+
+※ 手動更新なので、すぐには反映されません。
