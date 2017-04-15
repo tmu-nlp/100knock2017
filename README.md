@@ -15,5 +15,6 @@
 5. $ git pull
 6. $ git push
 
-# みんなの進捗 (不定期に手動更新)
-後日グラフを表示します。
+# みんなの進捗
+![progress](https://github.com/tmu-nlp/100knock2017/blob/master/progress.png)
+※手動更新なので、すぐには反映されません。
