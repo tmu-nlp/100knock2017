@@ -2,7 +2,6 @@ str1 = 'Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might A
 
 dic = {}
 str2 = str1.split()
-print (str2)
 #リストから1要素ずつ持ってきて、その要素と出現順を辞書に逐次追加していく
 count = 1
 for c in str2:
