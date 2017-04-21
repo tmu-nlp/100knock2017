@@ -12,5 +12,5 @@ for c in str1:
     else:
         m = c[:2]
     initial = {counter:m}
-    print initial
+    print (initial)
     counter += 1
