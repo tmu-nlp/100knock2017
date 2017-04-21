@@ -1,1 +1,3 @@
-print("hello world")
+a = "stressed"
+print(a[::-1])
+
