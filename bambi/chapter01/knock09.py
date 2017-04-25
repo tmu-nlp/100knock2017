@@ -3,7 +3,7 @@ content = "I couldn't believe that I could actually understand what I was readin
 words = content.split(" ")
 result_list = []
 for word in words:
-    if len(word) > 4:
+    if len(word) >= 4:
         first_letter = word[0]
         last_letter = word[-1]
         middle_part = word[1:-1]

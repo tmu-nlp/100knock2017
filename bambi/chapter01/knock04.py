@@ -7,5 +7,5 @@ for index, word in enumerate(words):
         key = word[:2]
     else:
         key = word[:1]
-    result_dict[key] = i
+    result_dict[key] = index
 print (result_dict)
