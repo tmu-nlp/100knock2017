@@ -3,3 +3,5 @@ result = ""
 words = content.split(" ")
 for word in words:
     result += str(len(word))
+
+print(result)
