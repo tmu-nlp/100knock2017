@@ -1,9 +1,8 @@
 import re
-str = "Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can."
+s = "Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can."
 
-str1 = filter(lambda w: len(w) >0,re.split('\s|,|\.|',str))
+str1 = filter(lambda w: len(w) >0,re.split('\s|,|\.|',s))
 counter = 1
-initial = {}
 #print str1[0]
 for c in str1:
     initial = {counter:c}
