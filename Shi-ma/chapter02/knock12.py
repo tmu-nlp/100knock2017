@@ -6,6 +6,7 @@ with open('../data/hightemp.txt', 'r') as data_in:
                 data_out1.write(line.split()[0] + '\n')
                 data_out2.write(line.split()[1] + '\n')
 
+# 確認用 #
 with open('../data/col1.txt', 'r') as data_out1:
     for line in data_out1:
         print(line.strip())
