@@ -1,5 +1,5 @@
 def ngram_l(n, txt):
-    words_l = list(map(str, txt.replace(',', ' ').replace('.', ' ').split()))
+    words_l = txt.replace(',', ' ').replace('.', ' ').split()
     txt_ngl = []
 
     for i in range(len(words_l)):

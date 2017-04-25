@@ -1,5 +1,5 @@
 def ngram_w(n, txt):
-    words_w = list(map(str, txt.replace(',', ' ').replace('.', ' ').split()))
+    words_w = txt.replace(',', ' ').replace('.', ' ').split()
     txt_ngw = []
 
     if len(words_w) >= n:
@@ -13,7 +13,7 @@ def ngram_w(n, txt):
         return words_w
 
 def ngram_l(n, txt):
-    words_l = list(map(str, txt.replace(',', ' ').replace('.', ' ').split()))
+    words_l = txt.replace(',', ' ').replace('.', ' ').split()
     txt_ngl = []
 
     for i in range(len(words_l)):
