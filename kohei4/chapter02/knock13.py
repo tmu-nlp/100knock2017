@@ -11,4 +11,5 @@ with open('col1.txt', 'r') as f1, open('col2.txt','r') as f2 :
 
         nl = nl + line1.strip('\n') + "\t" + line2
 
-print(nl)
+with open('merged.txt', 'w') as f:
+    f.write(nl)
