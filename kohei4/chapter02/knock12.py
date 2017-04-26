@@ -11,8 +11,8 @@ with open('hightemp.txt', 'r') as f:
         dtab=line.index("\t",ftab+1)
         col2.append("".join(line[ftab+1:dtab]))
 
-col1_text=" ".join(col1)
-col2_text=" ".join(col2)
+col1_text="\n".join(col1)
+col2_text="\n".join(col2)
 
 with open('col1.txt','w') as c1:
     c1.write(col1_text)
