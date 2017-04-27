@@ -7,6 +7,6 @@ with open('../data/col1.txt', 'r') as data_col1:
 # 確認用 #
 with open('../data/col3.txt', 'r') as data_out:
     for line in data_out:
-        print(line.strip())
+        print(line, end='')
 
 # paste ../data/col1.txt ../data/col2.txt #
