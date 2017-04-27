@@ -1,6 +1,6 @@
-str = "パタトクカシーー"
-l = len(str)
+strin = "パタトクカシーー"
+l = len(strin)
 for i in range(0,l):
 	if i%2==0:
-		print(str[i],end="")
+		print(strin[i],end="")
 print()
