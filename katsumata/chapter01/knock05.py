@@ -9,6 +9,7 @@ def word_n_gram(n, str1):
 #文字n-gram
 def char_n_gram(n, str1):
     list_char_ngram = []
+    #str1 = str1.replace(' ', '')
     for i in range(len(str1)-(n-1)):
         list_char_ngram.append([str1[i:i+n]])
     return list_char_ngram
