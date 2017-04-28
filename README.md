@@ -24,7 +24,7 @@
 
 # Progress Graph  
 ![progress](https://github.com/tmu-nlp/100knock2017/blob/master/progress.png)  
-※ 1分おきに自動更新します。  
+※ 1分おきに自動更新します (ここに反映されるまではさらに数分かかります) 。  
 
 
 ## 100knock2017 (English)  
@@ -35,7 +35,7 @@ TA and participants review your code.
 If you try this task, please keep the following rules.  
 1. make the new directory named "chapter##"  
 2. make your answer script named "knock##.py"  
-3. `$ git add knock##.py`  
+3. `$ git add knock##.py`("##" means "two-disit question number")  
 4. `$ git commit -m 'your message'`  
 5. `$ git pull`  
 6. `$ git push`  
