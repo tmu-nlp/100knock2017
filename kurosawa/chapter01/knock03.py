@@ -1,9 +1,9 @@
-str = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
-list = []
-str = str.replace(',','')
-str = str.replace('.','')
-str = str.split()
-l = len(str)
+strin = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
+list1 = []
+strin = strin.replace(',','')
+strin = strin.replace('.','')
+strin = strin.split()
+l = len(strin)
 for i in range(0,l):
-    list.append(len(str[i]))
-print(list)
+    list1.append(len(strin[i]))
+print(list1)
