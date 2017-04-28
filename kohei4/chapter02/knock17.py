@@ -13,7 +13,7 @@ with open('hightemp.txt', 'r') as f:
 
 set_col1 = set(col1)
 
-print(sorted(set_col1))
+print('\n'.join(sorted(set_col1)))
 
 ## Shell command
 print()
