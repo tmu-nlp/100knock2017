@@ -3,6 +3,7 @@ def cipher(s):
     for i in range(len(s)):
 #    for i in range(len(s)):
         if 'a' <= s[i] <= 'z':
+        #if i.islower():
 #        if ord('a') <= ord(s[i]) <= ord('z'):
 #           pw += chr(219 - i)
             pw += chr(219 - ord(s[i]))

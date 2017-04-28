@@ -44,10 +44,10 @@ def typo(w):
 #    return result
 
 
-str1 = "I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind."
+str1 = "I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind ."
 
 result = ""
-str1 = str1.replace("."," .")
+#str1 = str1.replace("."," .")
 s = str1.split()
 for n in s:
     result += " " + typo(n)
