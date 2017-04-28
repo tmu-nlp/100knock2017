@@ -19,7 +19,7 @@
 
 ### 注意事項  
 新入生はできるだけPython3系で書いてください。  
-わからないところはTAか研究室の人に聞いてください。  
+わからないところは**積極的に**TAか研究室の人に聞いてください。  
 **他の人のディレクトリを変更することは絶対にやめてください。**  
 (他の人のコードを閲覧したい場合は、Webサイト上から閲覧してください。)
 
@@ -42,7 +42,7 @@ If you try this task, please keep the following rules.
 
 ## Notes  
 Please use Python3.  
-Please ask TA's helps positively.  
+Please ask TA's helps **positively**.  
 Please commit your script and picture only. (Don't commit the other files such as text file.)  
 **Don't change the others' directories.**  
 Teaching materials of this meeting are written in Japanese, so some participants need to translate them.
