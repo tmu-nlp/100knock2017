@@ -27,7 +27,6 @@
 ![progress](https://github.com/tmu-nlp/100knock2017/blob/master/progress.png)  
 ※ 1分おきに自動更新します (ここに反映されるまではさらに数分かかります) 。  
 
-
 ## 100knock2017 (English)  
 We will work NLP 100 knockings as the study meeting for the newcomers in 2017.  
 Please solve the 10 questions every week.  
@@ -43,7 +42,7 @@ If you try this task, please keep the following rules.
 
 ## Notes  
 Please use Python3.  
-Please ask TA's helps if you cannot solve the question.  
-Please commit your script and picture's file only. (Don't commit the other files such as text file.) 
+Please ask TA's helps positively.  
+Please commit your script and picture only. (Don't commit the other files such as text file.)  
 **Don't change the others' directories.**  
 Teaching materials of this meeting are written in Japanese, so some participants need to translate them.
