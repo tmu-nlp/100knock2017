@@ -14,7 +14,8 @@
 (複数まとめて上げるときはここを任意の回数)
 4. `$ git commit -m 'ひとこと'`
 5. `$ git pull`
-6. `$ git push`
+6. `$ git push`  
+(画像以外の出力結果 (テキストファイルや学習モデルなど) はcommitしなくてよいです。)
 
 ### 注意事項  
 新入生はできるだけPython3系で書いてください。  
@@ -43,5 +44,6 @@ If you try this task, please keep the following rules.
 ## Notes  
 Please use Python3.  
 Please ask TA's helps if you cannot solve the question.  
+Please commit your script and picture's file only. (Don't commit the other files such as text file.) 
 **Don't change the others' directories.**  
 Teaching materials of this meeting are written in Japanese, so some participants need to translate them.
