@@ -30,7 +30,7 @@
 
 ## 100knock2017 (English)  
 We will work NLP 100 knockings as the study meeting for the newcomers in 2017.  
-Please solve the 10 questions every week.  
+Let's solve the 10 questions every week.  
 TA and participants review your code.  
 
 If you try this task, please keep the following rules.  
