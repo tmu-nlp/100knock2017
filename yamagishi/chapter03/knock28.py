@@ -3,11 +3,14 @@ from knock20 import getUKdata
 
 def cleaning(value):
     value = re.sub("'''''|'''", "", value)
-    match = re.match('.*\[\[.+\|(?P<string>.+?)\]\]|.*\[\[(?P<article>.+?)\]\]', value)
-    if match:
-        value = match.group('article') if match.group('string') is None else match.group('string')
+    match_inlink = re.match('.*\[\[.+\|(?P<string>.+?)\]\]|.*\[\[(?P<article>.+?)\]\]', value)
+    if match_inlink:
+        value = match_inlink.group('article') if match_inlink.group('string') is None else match_inlink.group('string')
+    value = re.sub('<.*>', '', value)
+    match_anchor = re.match('{{.+\|.+\|(?P<anchor>.+?)}}', value)
+    if match_anchor:
+        value = match_anchor.group('anchor')
     return value
-
 
 base = dict()
 
@@ -23,7 +26,9 @@ for line in getUKdata().split('\n'):
     elif flag is True:
         content = re_content.search(line)
         if content:
-            base[content.group('key')] = cleaning(content.group('value'))
+            feature = cleaning(content.group('value'))
+            if feature != '':
+                base[content.group('key')] = feature
 
 for key, value in base.items():
     print('{}\t{}'.format(key, value))
