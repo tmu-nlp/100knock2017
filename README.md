@@ -16,7 +16,8 @@
 5. `$ git pull`
 6. `$ git push`  
 
-(画像以外の出力結果 (テキストファイルや学習モデルなど) はcommitしなくてよいです。)
+(出力結果はcommitしなくてよいです (画像に関してはcommitしてもよいです) 。)  
+(後半になると出力するファイルサイズが大きいものも出てくるからです。)  
 
 ### 注意事項  
 新入生はできるだけPython3系で書いてください。  
@@ -30,7 +31,7 @@
 
 ## 100knock2017 (English)  
 We will work NLP 100 knockings as the study meeting for the newcomers in 2017.  
-Please solve the 10 questions every week.  
+Let's solve the 10 questions every week!  
 TA and participants review your code.  
 
 If you try this task, please keep the following rules.  

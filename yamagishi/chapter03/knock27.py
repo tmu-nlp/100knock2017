@@ -2,7 +2,11 @@ import re
 from knock20 import getUKdata
 
 def cleaning(value):
-    return re.sub("'''''|'''", "", value)
+    value = re.sub("'''''|'''", "", value)
+    match = re.match('.*\[\[.+\|(?P<string>.+?)\]\]|.*\[\[(?P<article>.+?)\]\]', value)
+    if match:
+        value = match.group('article') if match.group('string') is None else match.group('string')
+    return value
 
 
 base = dict()
