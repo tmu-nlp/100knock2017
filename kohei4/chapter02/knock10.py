@@ -1,7 +1,7 @@
 # coding: utf-8
 import sys
-f = open('hightemp.txt', 'r')
-text = str(f.read())
+with open('hightemp.txt', 'r') as f:
+    text = str(f.read())
 
 cnt = 0
 for i in range(len(text)):
