@@ -4,7 +4,7 @@ def cipher(word):
     result = ""
     for char in characters:
         if char.islower():
-            result += "219-{}".format(ord(char))
+            result += chr(219 - ord(char))
         else:
             result += char
     return result
