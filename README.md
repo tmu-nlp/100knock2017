@@ -14,34 +14,37 @@
 (複数まとめて上げるときはここを任意の回数)
 4. `$ git commit -m 'ひとこと'`
 5. `$ git pull`
-6. `$ git push`
+6. `$ git push`  
+
+(出力結果はcommitしなくてよいです (画像に関してはcommitしてもよいです) 。)  
+(後半になると出力するファイルサイズが大きいものも出てくるからです。)  
 
 ### 注意事項  
 新入生はできるだけPython3系で書いてください。  
-わからないところはTAか研究室の人に聞いてください。  
+わからないところは**積極的に**TAか研究室の人に聞いてください。  
 **他の人のディレクトリを変更することは絶対にやめてください。**  
 (他の人のコードを閲覧したい場合は、Webサイト上から閲覧してください。)
 
 # Progress Graph  
 ![progress](https://github.com/tmu-nlp/100knock2017/blob/master/progress.png)  
-※ 1分おきに自動更新します。  
-
+※ 1分おきに自動更新します (ここに反映されるまではさらに数分かかります) 。  
 
 ## 100knock2017 (English)  
 We will work NLP 100 knockings as the study meeting for the newcomers in 2017.  
-Please solve the 10 questions every week.  
+Let's solve the 10 questions every week!  
 TA and participants review your code.  
 
 If you try this task, please keep the following rules.  
 1. make the new directory named "chapter##"  
 2. make your answer script named "knock##.py"  
-3. `$ git add knock##.py`  
+3. `$ git add knock##.py`("##" means "two-disit question number")  
 4. `$ git commit -m 'your message'`  
 5. `$ git pull`  
 6. `$ git push`  
 
 ## Notes  
 Please use Python3.  
-Please ask TA's helps if you cannot solve the question.  
+Please ask TA's helps **positively**.  
+Please commit your script and picture only. (Don't commit the other files such as text file.)  
 **Don't change the others' directories.**  
 Teaching materials of this meeting are written in Japanese, so some participants need to translate them.
