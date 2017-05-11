@@ -7,3 +7,5 @@ for line in f:
     if i==n:
         break
 f.close()
+
+# head -2 hightemp.txt

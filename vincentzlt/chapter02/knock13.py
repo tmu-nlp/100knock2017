@@ -13,9 +13,9 @@ import sys
 def save_column(str_list1, str_list2):
     zipped=list(map(list,zip(str_list1,str_list2)))
     lines=[]
-    for i in zipped:
-        words=[_[:-1] for _ in i]
-        lines.append(words[0]+"\t"+words[1]+"\n")
+    for w in zipped:
+        #words=[_[:-1] for _ in i]
+        lines.append(w[1]+"\t"+w[0]+"\n")
     with open("combine.txt","w") as output_f:
         output_f.writelines(lines)
 
@@ -78,7 +78,7 @@ if __name__=="__main__":
         with open(sys.argv[1],"r") as input_f1:
             with open(sys.argv[2],"r") as input_f2:
                 save_column(input_f1.readlines(),input_f2.readlines())
-    except FileNotFoundError:
+    except :
         save_column(input_str1.splitlines(),input_str2.splitlines())
 
 
