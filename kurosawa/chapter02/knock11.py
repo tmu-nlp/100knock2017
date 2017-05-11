@@ -4,3 +4,5 @@ for line in f:
     f1.write(line.expandtabs(1))
 f.close()
 f1.close()
+
+# cat hightemp.txt | tr '\t' ' '

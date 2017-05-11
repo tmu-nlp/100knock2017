@@ -11,3 +11,5 @@ for line in f:
         print(line.replace('\n',''))
     j += 1
 f.close()
+
+# tail -2 hightemp.txt
