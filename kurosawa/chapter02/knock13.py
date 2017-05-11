@@ -7,3 +7,5 @@ for line1,line2 in zip(f1,f2):
 f1.close()
 f2.close()
 f.close()
+
+# paste col1_li.txt col2_li.txt > marge_li.txt
