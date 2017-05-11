@@ -5,3 +5,5 @@ with open("hightemp.txt",'r') as f:
         if not(list[0] in col1):
             col1.append(list[0])
     print(col1)
+
+# sort col1.txt | uniq
