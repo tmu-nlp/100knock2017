@@ -8,3 +8,5 @@ with open('hightemp.txt', 'r') as f:
 ln = len(lines)
 
 print(''.join(lines[ln-n:ln]),end='')
+
+## tail -n 3 hightemp.txt
