@@ -1,5 +1,6 @@
 # coding: utf-8
 import sys
+import os
 
 
 with open('hightemp.txt', 'r') as f:
@@ -19,3 +20,6 @@ with open('col1.txt','w') as c1:
 
 with open('col2.txt','w') as c2:
     c2.write(col2_text)
+
+#os.system("cut -f 1 hightemp.txt" )
+#os.system("cut -f 2 hightemp.txt" )

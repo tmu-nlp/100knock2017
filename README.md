@@ -5,7 +5,6 @@
 
 毎週1章分 (10問) 解いてください。  
 勉強会のときに1人1問ずつ自分のコードを説明してもらいます。  
-(新入生でない方が参加するかもしれませんが、説明者は新入生のみの予定です。)
 
 取り組む際には、以下のことを行ってください。
 1. 各章に初めて取り組むとき、"chapter##" (##は2桁で章番号) という名前のディレクトリを作成
@@ -16,8 +15,8 @@
 5. `$ git pull`
 6. `$ git push`  
 
-(出力結果はcommitしなくてよいです (画像に関してはcommitしてもよいです) 。)  
-(後半になると出力するファイルサイズが大きいものも出てくるからです。)  
+(出力結果はcommitしなくてよいです。(画像に関してはどちらでもよいです。) )  
+(後半になると出力するファイルのサイズが大きいものも出てくるからです。)  
 
 ### 注意事項  
 新入生はできるだけPython3系で書いてください。  
@@ -45,6 +44,6 @@ If you try this task, please keep the following rules.
 ## Notes  
 Please use Python3.  
 Please ask TA's helps **positively**.  
-Please commit your script and picture only. (Don't commit the other files such as text file.)  
+Please commit your script and picture only. (Don't commit the other files such as text file because file size of the output will be gradually larger.)  
 **Don't change the others' directories.**  
 Teaching materials of this meeting are written in Japanese, so some participants need to translate them.
