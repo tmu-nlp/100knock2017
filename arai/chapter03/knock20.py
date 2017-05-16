@@ -6,8 +6,10 @@ def getUK():
         for line in f:
             data = json.loads(line.decode("utf-8"))
             if data['title']=='イギリス': 
-                return data['text']
+                return data['text'].split('\n')
+              
 
 
 if __name__ == '__main__':
-    print(getUK())
+    for line in getUK():
+        print(line)
