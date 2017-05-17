@@ -9,4 +9,4 @@ with open('hightemp.txt', 'r') as f:
         for word in s_row[i]:
             print (word,end='\t')
         print ('')
-#sort -k 3,3 hightemp.txt
+#sort -k 3,3 -n hightemp.txt

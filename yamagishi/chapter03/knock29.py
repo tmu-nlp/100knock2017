@@ -29,7 +29,7 @@ def get_url(element):
         if 'url' in element:
             return element['url']
         else:
-            # 一つ下の階層に潜る
+            # 一つ下の階層に潜る(最終層のvalueはこれ以下が回らない)
             for value in element.values():
                 cand = get_url(value)
                 # 最後までurlが出ない辞書に潜ったら、最後にNoneが返る

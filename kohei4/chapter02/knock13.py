@@ -1,5 +1,6 @@
 # coding: utf-8
 import sys
+import os
 
 nl = ''
 with open('col1.txt', 'r') as f1, open('col2.txt','r') as f2 :
@@ -13,3 +14,5 @@ with open('col1.txt', 'r') as f1, open('col2.txt','r') as f2 :
 
 with open('merged.txt', 'w') as f:
     f.write(nl)
+
+## os.system(-d "paste col1.txt col2.txt")
