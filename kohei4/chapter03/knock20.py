@@ -17,4 +17,5 @@ with open('jawiki-country.json','rb') as jsn:
 about_england = item_dic['イギリス']['text']
 print("イギリスについて、knock21")
 print( about_england )
+#print(*about_england)
 print()
