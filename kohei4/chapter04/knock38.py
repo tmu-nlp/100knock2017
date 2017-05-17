@@ -1,9 +1,11 @@
 # coding: utf-8
 #import pandas as pd
-#import numpy as np
+import numpy as np
+from collections import Counter
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 from matplotlib.font_manager import FontProperties
+
 mpl.rcParams['font.family'] = 'Arial Unicode MS'
 
 # final_list[st_list[word_dic{}]]
@@ -54,32 +56,24 @@ for st_l in final_list:
                 wd_dict[word] = 1
 
 
-wd_dict_l = list(wd_dict.items())
+wd_freq_l = list(wd_dict.values())
 
-wd_dict_l.sort(reverse=True, key=lambda freq: freq[1])
+#wd_freq_l.sort()
 
+#print(wd_freq_l)
 
+#freq_couter = Counter(wd_freq_l)
 
-X=[]
-Y=[]
-Xstr=[]
-for i in range(10):
-     X.append(i)
-     Y.append(wd_dict_l[i][1])
-     Xstr.append(wd_dict_l[i][0])
-
-#print(X)
-#print(Y)
-#print(Xstr)
-
-plt.bar(X,Y)
-plt.xticks(X,Xstr)
+#freq_list = freq_couter.most_common()
+#print(freq_list)
+import matplotlib.font_manager
+print([f.name for f in matplotlib.font_manager.fontManager.ttflist])
+#Xmax = freq_list[-1][0]
+#print(Xmax)
+plt.title(u'単語の出現頻度のヒストグラム')
+plt.xlabel('出現頻度')
+plt.ylabel('単語の種類')
+plt.hist(wd_freq_l,bins = np.logspace(0,4,100), log=True)
+plt.gca().set_xscale("log")
 
 plt.show()
-
-
-
-
-
-#meishi_rensetu_l.sort(reverse=True)
-#meishi_rensetu_l.sort(reverse=True, key=lambda freq: freq[0])
