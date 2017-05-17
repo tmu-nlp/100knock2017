@@ -14,8 +14,9 @@ def kisotemp():
             flag = 0
         elif flag == 1:
             data = re.sub(r'^\|','',data)
+            data = re.sub(r'^\*+','',data)
 #            print(data)
-            data = data.split('=')
+            data = re.split(r' *= *',data)
             data.append('')
             if data[1] is '':
                 data[1] = old + ' & ' + data[0]
@@ -28,4 +29,5 @@ def kisotemp():
     return dic
 
 if __name__ == '__main__':
-    print(kisotemp())
+    for key, data in sorted(kisotemp().items()):
+        print('{} : {}'.format(key,data))
