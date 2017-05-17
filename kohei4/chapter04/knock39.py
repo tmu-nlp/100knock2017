@@ -56,24 +56,34 @@ for st_l in final_list:
                 wd_dict[word] = 1
 
 
-wd_freq_l = list(wd_dict.values())
+wd_dict_l = list(wd_dict.items())
 
-#wd_freq_l.sort()
+wd_dict_l.sort(reverse=True, key=lambda freq: freq[1])
 
-#print(wd_freq_l)
+X=[]
+Y=[]
+Xstr=[]
+i=1
+for w, f in wd_dict_l:
+     X.append(i)
+     Y.append(f)
+#     print(i,f)
+     i += 1
 
-#freq_couter = Counter(wd_freq_l)
+#print(X)
+#print(Y)
+#print(Xstr)
 
-#freq_list = freq_couter.most_common()
-#print(freq_list)
-#import matplotlib.font_manager
-#print([f.name for f in matplotlib.font_manager.fontManager.ttflist])
-#Xmax = freq_list[-1][0]
-#print(Xmax)
-plt.title(u'単語の出現頻度のヒストグラム 我輩は猫である')
-plt.xlabel('出現頻度')
-plt.ylabel('単語の種類')
-plt.hist(wd_freq_l,bins = np.logspace(0,4,100), log=True)
-plt.gca().set_xscale("log")
+plt.plot(Y)
+plt.yscale("log")
+plt.xscale("log")
+plt.title(u'Zipfの法則 我輩は猫である')
+plt.xlabel('出現頻度順位')
+plt.ylabel('出現頻度')
+plt.xlim([1,2*10**4])
+plt.show()
+
+
+
 
 plt.show()
