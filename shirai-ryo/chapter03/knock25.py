@@ -6,6 +6,8 @@ my_dict = dict()
 flag = 0
 
 pattern = re.compile(r'\|(?P<key>.+?)=(?P<value>.+)')
+#?P<名前>で引き出す場所？
+#正規表現まじやばくね
 
 for line in wiki_UK().split('\n'):
     if line.startswith('{{基礎情報'):
