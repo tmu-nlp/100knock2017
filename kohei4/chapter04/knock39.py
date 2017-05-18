@@ -1,9 +1,11 @@
 # coding: utf-8
 #import pandas as pd
-#import numpy as np
+import numpy as np
+from collections import Counter
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 from matplotlib.font_manager import FontProperties
+
 mpl.rcParams['font.family'] = 'Arial Unicode MS'
 
 # final_list[st_list[word_dic{}]]
@@ -58,28 +60,30 @@ wd_dict_l = list(wd_dict.items())
 
 wd_dict_l.sort(reverse=True, key=lambda freq: freq[1])
 
-
-
 X=[]
 Y=[]
 Xstr=[]
-for i in range(10):
+i=1
+for w, f in wd_dict_l:
      X.append(i)
-     Y.append(wd_dict_l[i][1])
-     Xstr.append(wd_dict_l[i][0])
+     Y.append(f)
+#     print(i,f)
+     i += 1
 
 #print(X)
 #print(Y)
 #print(Xstr)
 
-plt.bar(X,Y)
-plt.xticks(X,Xstr)
-
+plt.plot(Y)
+plt.yscale("log")
+plt.xscale("log")
+plt.title(u'Zipfの法則 我輩は猫である')
+plt.xlabel('出現頻度順位')
+plt.ylabel('出現頻度')
+plt.xlim([1,2*10**4])
 plt.show()
 
 
 
 
-
-#meishi_rensetu_l.sort(reverse=True)
-#meishi_rensetu_l.sort(reverse=True, key=lambda freq: freq[0])
+plt.show()
