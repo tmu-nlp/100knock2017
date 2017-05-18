@@ -11,7 +11,8 @@ for i, line in enumerate(open('./hightemp.txt')):
         data = list()
         file_num += 1
 
-with open('split{0:02d}.txt'.format(file_num), 'w') as f:
-    f.write('\n'.join(data))
+if len(data) > 0:
+    with open('split{0:02d}.txt'.format(file_num), 'w') as f:
+        f.write('\n'.join(data))
 
 # UNIX command: split -l 10 hightemp.txt
