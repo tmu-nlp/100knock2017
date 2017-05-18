@@ -8,3 +8,6 @@ for line in f:
 f.close()
 f1.close()
 f2.close()
+
+# cut -f1 hightemp.txt > col1_li.txt
+# cut -f2 hightemp.txt > col2_li.txt
