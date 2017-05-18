@@ -6,13 +6,13 @@ if __name__ == '__main__':
     nouns = []
     for line in mecab_data:
         nouns_phrase = ''
-        flag = -1
+        flag = -99
         flag_continue = 0
         for i, word in enumerate(line):
             if flag_continue == 1:
                 flag_continue = 0
                 continue
-            if flag == -1 and word['surface'] == 'の' and word['pos'] == '助詞' and word['pos1'] == '連体化' and i+1 < len(line):
+            if flag == -99 and word['surface'] == 'の' and word['pos'] == '助詞' and word['pos1'] == '連体化' and i+1 < len(line):
                 nouns_phrase += line[i-1]['surface'] + word['surface'] + line[i+1]['surface']
                 flag = i
                 flag_continue = 1
@@ -22,7 +22,7 @@ if __name__ == '__main__':
                     flag = i
                     flag_continue = 1
                 else:
-                    if nouns_phrase != '':
+                    if nouns_phrase != '' and nouns_phrase not in nouns:
                         nouns.append(nouns_phrase)
                         nouns_phrase = ''
                         flag_continue = 0
