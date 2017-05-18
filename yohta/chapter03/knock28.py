@@ -24,6 +24,8 @@ for line in text:
         word = re.sub(r'\'','',word)
         word = re.sub(r'\[\[','',word)
         word = re.sub(r'\]\]','',word)
+        word = re.sub(r'\[\[','',word)
+        word = re.sub(r'\]\]','',word)s
         word = re.sub(r'\[http.*\]','',word)
         word = re.sub(r'\<ref.*\>','',word)
         word = re.sub(r'\<br.*\>','',word)

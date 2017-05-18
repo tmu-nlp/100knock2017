@@ -24,6 +24,8 @@ for line in text:
         word = re.sub(r'\'','',word)
         word = re.sub(r'\[\[','',word)
         word = re.sub(r'\]\]','',word)
+        word = re.sub(r'\[\[','',word)
+        word = re.sub(r'\]\]','',word)
         word = re.split(r'\s\=\s',word)
         dict1[word[0]] = word[1]
 
