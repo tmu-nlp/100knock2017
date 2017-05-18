@@ -11,8 +11,7 @@ import sys, pprint, re
 # In[82]:
 
 sec=re.compile("\{\{基礎情報 国.+?\n\}\}\n",flags=re.DOTALL)
-key_value=re.compile("\n\|(.+?) = (.+?)\n\|",flags=re.DOTALL)
-
+key_value=re.compile("^\|(.+?) = (.+?)\n(?=\|)",flags=re.DOTALL|re.MULTILINE)
 inner_link=re.compile("\[\[(.+?)\]\]")
 
 

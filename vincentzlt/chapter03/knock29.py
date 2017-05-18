@@ -5,14 +5,13 @@
 
 #!/usr/bin/python
 # -*- coding: UTF-8 -*- 
-import sys, pprint, re
+import sys, pprint, re,requests,json
 
 
 # In[82]:
 
 sec=re.compile("\{\{基礎情報 国.+?\n\}\}\n",flags=re.DOTALL)
-key_value=re.compile("\n\|(.+?) = (.+?)\n\|",flags=re.DOTALL)
-
+key_value=re.compile("^\|(.+?) = (.+?)\n(?=\|)",flags=re.DOTALL|re.MULTILINE)
 inner_link=re.compile("\[\[(.+?)\]\]")
 
 
@@ -35,8 +34,8 @@ def get_response(name):
     response = requests.get(end_point, params)
     return response.json()
 
-
-print(get_response(dict["国旗画像"]))
+json_image=get_response(dict["国旗画像"])
+print(json.loads(json_image))
 
 
 
