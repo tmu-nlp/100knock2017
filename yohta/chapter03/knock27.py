@@ -31,4 +31,4 @@ for line in text:
 
 for key,bar in sorted(dict1.items()):
 
-    print('{}{}:{}{}'.format(key,'\t','\t',bar))
+    print('{}\t:\t{}'.format(key,bar))

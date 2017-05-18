@@ -25,7 +25,7 @@ for line in text:
         word = re.sub(r'\[\[','',word)
         word = re.sub(r'\]\]','',word)
         word = re.sub(r'\[\[','',word)
-        word = re.sub(r'\]\]','',word)s
+        word = re.sub(r'\]\]','',word)
         word = re.sub(r'\[http.*\]','',word)
         word = re.sub(r'\<ref.*\>','',word)
         word = re.sub(r'\<br.*\>','',word)
@@ -34,4 +34,4 @@ for line in text:
 
 for key,bar in sorted(dict1.items()):
 
-    print('{}{}:{}{}'.format(key,'\t','\t',bar))
+    print('{}\t:\t{}'.format(key,bar))
