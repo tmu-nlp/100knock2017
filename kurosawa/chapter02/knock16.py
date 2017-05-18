@@ -7,3 +7,4 @@ with open('hightemp.txt','r') as f:
         print(line, end="")
         i += 1
 
+# split -l 10 hightemp.txt split_
