@@ -34,8 +34,9 @@ def get_response(name):
     response = requests.get(end_point, params)
     return response.json()
 
-json_image=get_response(dict["国旗画像"])
-print(json.loads(json_image))
+json_image_str=get_response(dict["国旗画像"])
+
+pprint.pprint(json_image_str['query']['pages']['23473560']['imageinfo'][0]['url'])
 
 
 

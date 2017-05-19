@@ -34,7 +34,7 @@ for line in text:
 #            print('{}:{}'.format(word[0],word[1]))
 #        else:
 for key,bar in sorted(dict1.items()):
-    print('{}{}:{}{}'.format(key,'\t','\t',bar))
+    print('{}\t:\t{}'.format(key,'\t','\t',bar))
 
 #        temp = nord
 #    temp = re.sub('^\|','',line)

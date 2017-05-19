@@ -24,9 +24,11 @@ for line in text:
         word = re.sub(r'\'','',word)
         word = re.sub(r'\[\[','',word)
         word = re.sub(r'\]\]','',word)
+        word = re.sub(r'\[\[','',word)
+        word = re.sub(r'\]\]','',word)
         word = re.split(r'\s\=\s',word)
         dict1[word[0]] = word[1]
 
 for key,bar in sorted(dict1.items()):
 
-    print('{}{}:{}{}'.format(key,'\t','\t',bar))
+    print('{}\t:\t{}'.format(key,bar))
