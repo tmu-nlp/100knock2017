@@ -21,21 +21,23 @@ class Morph:
         return self.pos1
 
 
-if __name__ == '__main__':
-    neko_list = list()
+def get_morph_list():
     sentence = list()
     for line in open('./neko.txt.cabocha'):
         if line.startswith('*'):
             continue
         elif line.startswith('EOS'):
-            neko_list.append(sentence)
+            if len(sentence) > 0:
+                yield sentence
             sentence = list()
         else:
             surface, morphs = line.rstrip('\n').split('\t')
             morphs = morphs.split(',')
             sentence.append(Morph(surface, morphs[0], morphs[1], morphs[6]))
 
-    for i, sentence in enumerate(neko_list):
+if __name__ == '__main__':
+    for i, sentence in enumerate(get_morph_list()):
         if i == 2:
             for morph in sentence:
                 print(morph.get_morph())
+            break

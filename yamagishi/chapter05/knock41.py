@@ -47,14 +47,10 @@ class Chunk:
         self.morphs.append(morph)
 
 
-def get_neko_list(n=float('inf')):
-    neko_list = list()
+def get_neko_list():
     sentence = list()
     src = defaultdict(list)
     for line in open('./neko.txt.cabocha'):
-        if len(neko_list) > n:
-            break
-
         if line.startswith('*'):
             ids = line.rstrip('\n').split()
             chunk_id = int(ids[1])
@@ -65,7 +61,7 @@ def get_neko_list(n=float('inf')):
 
         elif line.startswith('EOS'):
             if len(sentence) > 0:
-                neko_list.append(sentence)
+                yield sentence
             sentence = list()
             src = defaultdict(list)
 
@@ -75,12 +71,13 @@ def get_neko_list(n=float('inf')):
             morph = Morph(surface, morphs[0], morphs[1], morphs[6])
             chunk.append_morph(morph)
 
-    return neko_list
 
 if __name__ == '__main__':
-    neko_list = get_neko_list(8)
     sentence = list()
-    for chunk in neko_list[7]:
-        print(chunk)
-        sentence.append(chunk.get_string())
-    print(' '.join(sentence))
+    for i, line in enumerate(get_neko_list()):
+        if i == 7:
+            for chunk in line:
+                print(chunk)
+                sentence.append(chunk.get_string())
+            print(' '.join(sentence))
+            break
