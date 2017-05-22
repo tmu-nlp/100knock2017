@@ -4,13 +4,18 @@ import gzip
 import json
 
 def get_flag_name():
+    '''
+    get_responseの動作確認のため、イギリス以外の国旗も取得
+    (本当はイギリス国旗だけ持って来ればいい)
+    '''
+
     re_flag = re.compile('.*国旗画像.*=.*(?P<flag>Flag.+\.svg)')
     name_dict = dict()
     with gzip.open('./jawiki-country.json.gz', 'r') as f:
         for line in f:
             text = json.loads(line.decode('utf-8'))
-            for line in text['text'].split('\n'):
-                content = re_flag.search(line)
+            for sentence in text['text'].split('\n'):
+                content = re_flag.search(sentence)
                 if content:
                     name_dict[text['title']] = content.group('flag')
     return name_dict
@@ -29,7 +34,7 @@ def get_url(element):
         if 'url' in element:
             return element['url']
         else:
-            # 一つ下の階層に潜る
+            # 一つ下の階層に潜る(最終層のvalueはこれ以下が回らない)
             for value in element.values():
                 cand = get_url(value)
                 # 最後までurlが出ない辞書に潜ったら、最後にNoneが返る
