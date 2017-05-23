@@ -22,7 +22,8 @@ for line in open("./UK.txt","r"):
     match_only=file_links_only.match(line)
     if match or match_only:
         try:
-            print(match.string)
+            pass
+            #5print(match.string)
         except:
             pass
         try:
