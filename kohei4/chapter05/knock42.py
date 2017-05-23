@@ -119,6 +119,9 @@ for l in range(len(chunk_list)):
     for i, bunsetu in enumerate(bunsetu_l):
         if bunsetu[0] == -1:
             continue
-        print("{}\t{}".format(bunsetu[2],bunsetu_l[bunsetu[0]][2]))
+
+        kakarimoto = re.sub(r'(。|、|」|「)','',bunsetu[2])
+        kakarisaki = re.sub(r'(。|、|」|「)','',bunsetu_l[bunsetu[0]][2])
+        print("{}\t{}".format(kakarimoto,kakarisaki))
 
     print()
