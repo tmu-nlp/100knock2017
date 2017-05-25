@@ -2,7 +2,8 @@ def get_morphs(file_name):
     sentence = list()
     for line in open(file_name):
         if line.startswith('EOS'):
-            yield sentence
+            if len(sentence) > 0:
+                yield sentence
             sentence = list()
         else:
             mecab_line = line.rstrip('\n').split('\t')

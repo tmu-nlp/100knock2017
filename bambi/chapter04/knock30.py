@@ -9,3 +9,5 @@ def getMecab():
                 dic = {"surface":w[0], "base":w[7],"pos":w[1], "pos1":w[2]}
                 morph_list.append(dic)
     return morph_list
+if __name__ == "__main__":
+    print(getMecab())
