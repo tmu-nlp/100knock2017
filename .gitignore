@@ -4,7 +4,7 @@
 */*/*
 */*
 *
-!knock*.py
+!*.py
 !*.cs
 !*.cgi
 !chapter*/
