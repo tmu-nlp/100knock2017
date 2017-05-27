@@ -35,6 +35,6 @@ number = 該当単語の出現回数（リスト:多い順）
 left = 横軸用の数値（リスト）
 """
 #cprint(words)
-    plt.bar(left,number,align = 'center')
-    plt.xticks(left,words)
-    plt.show()
+plt.bar(left,number,align = 'center')
+plt.xticks(left,words)
+plt.show()
