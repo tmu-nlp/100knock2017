@@ -48,7 +48,7 @@ def get_verb_surface(mecab_list):
 if __name__ == "__main__":
     mecob_list=get_verb_surface(get_wordlist("./neko.txt.mecab"))
     
-    print(len(mecob_list),mecob_list[:100],sep="\n")
+    print(len(mecob_list),mecob_list,sep="\n")
 
 
 # In[ ]:
