@@ -23,7 +23,7 @@ def get_wordlist(f_name):
         if not line.startswith("EOS"):
             word_, pos_ = line.replace("\n", "").split("\t")
             pos_ = pos_.split(",")
-            len_pos = len(pos_)
+            #len_pos = len(pos_)
 
             word_pos_dict[next(pos_ls)] = word_
 

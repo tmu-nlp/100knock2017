@@ -9,6 +9,6 @@ for sentence in get_morphs('./neko.txt.mecab'):
 
 plt.xscale('log')
 plt.yscale('log')
-plt.bar(range(1, len(frequency.values()) + 1), list(sorted(frequency.values(), reverse=True)))
+plt.plot(range(len(frequency.values())), list(sorted(frequency.values(), reverse=True)))
 plt.savefig('knock39_result.png')
 plt.show()

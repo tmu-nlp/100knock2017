@@ -1,15 +1,16 @@
 
 # coding: utf-8
 
-# In[3]:
+# In[16]:
 
 #!/usr/bin/python
 
 import sys, pprint, re,pickle
 from collections import defaultdict
+import matplotlib.pyplot as plt
 
 
-# In[4]:
+# In[3]:
 
 def get_wordlist(f_name):
     mecob_list = []
@@ -33,38 +34,38 @@ def get_wordlist(f_name):
     return mecob_list
 
 
-# In[14]:
+# In[4]:
 
-def get_NNN(mecab_list):
-    noun_list=[]
-    nn=[]
+def get_freq(mecob_list):
+    freq_dict=defaultdict(lambda:0)
+    for w in mecob_list:
+        freq_dict[w["word"]]+=1
+    return freq_dict
+
+
+# In[28]:
+
+def print_graph(data):
+    # data should be list of tuples, each tuple is a key-value pair
+    n_groups=len(data)
+
+    bar_hight=list(i[1] for i in data)
+    bar_note=list(i[0] for i in data)
     
-    n_in=False
     
-    for w in mecab_list:
-        if (w["品詞"]=="名詞") and (not n_in):
-            nn=[]
-            nn.append(w["word"])
-            n_in=True
-        elif w["品詞"]=="名詞" and  n_in:
-            nn.append(w["word"])
-        elif w["品詞"]!="名詞" and n_in:
-            if len(nn)>1:
-                noun_list.append(nn)
-            n_in=False
-        else:
-            n_in =False
-        
-    return noun_list
+    plt.bar([i+1 for i in range(n_groups)],bar_hight,tick_label=bar_note, align="center")
+    plt.show()
 
 
-# In[16]:
+# In[6]:
+
+# In[22]:
 
 if __name__ == "__main__":
-    word_list=get_NNN(get_wordlist("./neko.txt.mecab"))
-    for nn in sorted(word_list,key=lambda s:len(s)):
-        print(" ".join(nn))
+    freq_dict=get_freq(get_wordlist("./neko.txt.mecab"))
+    freq_dict=sorted(freq_dict.items(), key=lambda d:d[1], reverse = True)
     
+    print_graph(freq_dict[:10])
 
 
 # In[ ]:
