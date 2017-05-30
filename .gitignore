@@ -4,12 +4,12 @@
 */*/*
 */*
 *
-!knock*.py
+!*.py
 !*.cs
 !*.cgi
 !chapter*/
 !*/
-update_progress.py
+make_progress.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

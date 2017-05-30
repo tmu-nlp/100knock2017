@@ -5,7 +5,7 @@
 
 #!/usr/bin/python
 
-import sys, pprint, re,pickle,matplotlib
+import sys, pprint, re,pickle
 from collections import defaultdict
 import matplotlib.pyplot as plt
 
