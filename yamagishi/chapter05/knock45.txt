@@ -1,4 +1,4 @@
-動かしたいときは、sortの後に | head -n 10 とかつけると見やすいと思います。
+動かしたいときは、sortの後に | tail -n 10 とかつけると見やすいと思います。
 
 $ python knock45.py | cut -f2 | sort | uniq -c | sort
    1 く	で
