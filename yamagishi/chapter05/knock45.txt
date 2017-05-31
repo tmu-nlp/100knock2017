@@ -1,3 +1,5 @@
+動かしたいときは、sortの後に | head -n 10 とかつけると見やすいと思います。
+
 $ python knock45.py | cut -f2 | sort | uniq -c | sort
    1 く	で
    1 く	と
