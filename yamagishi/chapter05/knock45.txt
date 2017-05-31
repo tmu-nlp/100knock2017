@@ -1,4 +1,4 @@
-$ python knock45.py | cut -f2 | sort | uniq -c | sort | tail -n 10
+$ python knock45.py | sort | uniq -c | sort | tail -n 10
  157 する	が
  184 いる	に
  196 する	と
