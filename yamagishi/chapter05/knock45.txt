@@ -23,16 +23,16 @@ $ python knock45.py | grep する | cut -f2 | sort | uniq -c | sort | tail -n 10
  747 を
 
 $ python knock45.py | grep 見る | cut -f2 | sort | uniq -c | sort | tail -n 10
-  37 で を
-  50 で
-  62 が を
-  63 に を
-  73 を に
-  79 と を
- 157 が
- 212 と
- 277 に
- 747 を
+   3 から を
+   4 で を
+   4 を に
+   5 で
+   7 が を
+   9 に
+  11 が
+  18 から
+  20 と
+ 125 を
 
 $ python knock45.py | grep 与える | cut -f2 | sort | uniq -c | sort
    1 と を
