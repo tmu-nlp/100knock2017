@@ -21,13 +21,13 @@ for line in get_neko_list():
                 continue
             
             answer = list()
-            merge_path = list(set(i_path + j_path))
 
             # 以下が成り立つとき、j_pathはi_pathに内包される
-            if len(i_path) == len(merge_path):
+            if len(i_path) == len(set(i_path + j_path)):
                 j_dst = line[i].get_dst()
                 for count, dst in enumerate(search_path(line, i, j_path[0])):
                     answer.append(line[dst].get_word_only() if count > 0 else line[dst].get_change_char('X'))
+                # 最後にappendした文節はjなので、jに含まれる名詞をYに変えるための処理をする
                 answer.pop()
                 answer.append(line[dst].get_change_char('Y'))
                 print(' -> '.join(answer))
