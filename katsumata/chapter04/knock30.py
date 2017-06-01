@@ -12,7 +12,7 @@ def make_morpheme_list():
     """
     temp_dict = dict()
     temp_list = list()
-    with open('biyori.txt.mecab', 'r') as neko:
+    with open('neko.txt.mecab', 'r') as neko:
         for line in neko:
             temp_dict = dict()
             line = line.replace('\t',',')
