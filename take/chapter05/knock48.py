@@ -15,6 +15,8 @@ Ans. for knock48
 
 from get_chunks_list import get_chunks_list
 
+DIVIDER = ' -> '
+
 def get_root(chunklist, start_chunk, result_lst):
     res = result_lst
     if start_chunk.link == -1:# or not start_chunk.has_noun:
@@ -31,7 +33,7 @@ def get_root(chunklist, start_chunk, result_lst):
             res.append(c.allbody)
             # print('-----------',res)
             if c.link == -1:
-                print(''.join(res))
+                print(DIVIDER.join(res))
             else:
                 get_root(chunklist, c, res)
 
@@ -41,5 +43,6 @@ for sent in sents_list: # sentはchunkリスト(文)のリスト
     for c in sent:
         if c.has_noun:
             get_root(target_sent, c, [])
+    # for debug
     if c.sentence_id > 5:
         break
