@@ -6,12 +6,12 @@ if __name__ == '__main__':
         nouns = []
         for line in mecab_data:
             nouns_series = ''
-            flag = -99
-            for i, word in enumerate(line):
-                if word['pos'] == '名詞' and (flag == -99 or flag == i-1):
+            for word in line:
+                if word['pos'] == '名詞':
                     nouns_series += word['surface']
-                    flag = i
-                elif word['pos'] != '名詞' and flag == i-1 and nouns_series not in nouns:
-                    nouns.append(nouns_series)
-        with open('../data/neko_nouns_series.txt', 'w') as data_out:
+                else:
+                    if nouns_series != '':
+                        nouns.append(nouns_series)
+                        nouns_series = ''
+        with open('knock35.txt', 'w') as data_out:
             data_out.write(str(nouns))
