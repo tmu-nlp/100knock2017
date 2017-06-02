@@ -26,7 +26,7 @@
 
 # Progress Graph  
 ![progress](https://github.com/tmu-nlp/100knock2017/blob/master/progress.png)  
-※ 1分おきに自動更新します (ここに反映されるまではさらに数分かかります) 。  
+※ 15分おきに自動更新します (ここに反映されるまではさらに数分かかります) 。  
 
 ## 100knock2017 (English)  
 We will work NLP 100 knockings as the study meeting for the newcomers in 2017.  
