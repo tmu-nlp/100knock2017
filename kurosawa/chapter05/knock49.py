@@ -65,10 +65,12 @@ if __name__ == '__main__':
                             flag_back = 2
 #                            print('{} back after'.format(dst_print))
                         if dst_print == n[m]:
-                            str_list.append(make_str(lines_main[dst_print],2))
 #                            print('{} same'.format(dst_print))
                             if flag_back == 0:
+                                str_list.append('Y')
                                 break
+                            else:
+                                str_list.append(make_str(lines_main[dst_print],2))
                         else:
                             str_list.append(make_str(lines_main[dst_print]))
 #                            print('{} append'.format(dst_print))
