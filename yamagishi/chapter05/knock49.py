@@ -49,7 +49,7 @@ for line in get_neko_list():
                 # i_pathとj_pathの共通部分が、合流後からのpath
                 # 欲しい文節は、合流点k
                 # k_dstには-1(root)と合流点kからのpathが入るので、2番目のdstが合流点kを示す
-                k_dst = sorted(list(i_path_set & j_path_set))
+                k_dst = sorted(i_path_set & j_path_set)
                 answer.append(line[k_dst[1]].get_word_only())
 
                 print(' | '.join(answer))
