@@ -36,13 +36,13 @@ for line in get_neko_list():
             else:
                 # i_pathにあってj_pathにないもの
                 x = list()
-                for count, i_dst in enumerate(sorted(list(i_path_set - j_path_set))):
+                for count, i_dst in enumerate(sorted(i_path_set - j_path_set)):
                     x.append(line[i_dst].get_word_only() if count > 0 else line[i_dst].get_change_char('X'))
                 answer.append(' -> '.join(x))
                 
                 # j_pathにあってi_pathにないもの
                 y = list()
-                for count, j_dst in enumerate(sorted(list(j_path_set - i_path_set))):
+                for count, j_dst in enumerate(sorted(j_path_set - i_path_set)):
                     y.append(line[j_dst].get_word_only() if count > 0 else line[j_dst].get_change_char('Y'))
                 answer.append(' -> '.join(y))
 
