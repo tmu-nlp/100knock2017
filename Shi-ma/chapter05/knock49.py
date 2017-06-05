@@ -20,7 +20,8 @@ def print_IJ(I, J, data_out):
     if len(I) >= 2:
         I_txt += ' -> '
         I_txt += ' -> '.join([each_I.get_phrase_txt() for each_I in I[1:]])
-    J_txt = J.get_phrase_XY('Y')
+    J_txt = 'Y'
+    # J_txt = J.get_phrase_XY('Y')
     print(I_txt + ' -> ' + J_txt, file=data_out)
 
 def print_IJK(I, J, K, data_out):
