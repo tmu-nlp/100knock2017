@@ -37,7 +37,7 @@ def get_morph_list():
 
 if __name__ == '__main__':
     for i, sentence in enumerate(get_morph_list()):
-        if i == 2:
+        if i == 5:
             for morph in sentence:
                 print(morph.get_morph())
             break

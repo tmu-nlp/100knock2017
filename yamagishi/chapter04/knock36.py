@@ -6,5 +6,5 @@ for sentence in get_morphs('./neko.txt.mecab'):
     for word in sentence:
         frequency[word['base']] += 1
 
-for word, freq in sorted(frequency.items(), key=lambda x: x[1], reverse=True):
+for word, freq in sorted(frequency.items(), key=lambda x: x[1], reverse=True)[:10]:
     print(word, freq)
