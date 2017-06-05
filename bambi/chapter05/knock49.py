@@ -1,23 +1,81 @@
 from knock41 import Cabocha
 '''
-文中のすべての名詞句のペアを結ぶ最短係り受けパスを抽出せよ．ただし，名詞句ペアの文節番号がiiとjj（i<ji<j）のとき，係り受けパスは以下の仕様を満たすものとする．
-問題48と同様に，パスは開始文節から終了文節に至るまでの各文節の表現（表層形の形態素列）を"->"で連結して表現する
-文節iiとjjに含まれる名詞句はそれぞれ，XとYに置換する
-また，係り受けパスの形状は，以下の2通りが考えられる．
-文節iiから構文木の根に至る経路上に文節jjが存在する場合: 文節iiから文節jjのパスを表示
-上記以外で，文節iiと文節jjから構文木の根に至る経路上で共通の文節kkで交わる場合: 文節iiから文節kkに至る直前のパスと文節jjから文節kkに至る直前までのパス，文節kkの内容を"|"で連結して表示
-例えば，「吾輩はここで始めて人間というものを見た。」という文（neko.txt.cabochaの8文目）から，次のような出力が得られるはずである．
 Xは | Yで -> 始めて -> 人間という -> ものを | 見た
+        body
 Xは | Yという -> ものを | 見た
 Xは | Yを | 見た
+
+inside body
 Xで -> 始めて -> Y
 Xで -> 始めて -> 人間という -> Y
 Xという -> Y
-from 48.py
-吾輩は->見た
-ここで->始めて->人間という->ものを->見た
-人間という->ものを->見た
-ものを->見た : Xは
 '''
-print("What's go~ing on!??? I feel nothing @x@")
-print("(*´Д｀)ﾉ~~☆:.･*.バ〜イ・バイ.:♪･*.:(´Д｀*)ノ~~☆")
+
+def add_unique(container, item):
+    if item not in container:
+        container.append(item)
+bags = []
+for s in Cabocha().get_sentence():
+    items = []
+    for i, c in enumerate(s):
+        chunk = s[i]
+        np = []
+        if chunk.morphs[0].pos != "名詞":
+            continue
+        dst = chunk.dst
+        body = s[i+1:dst]
+        inside_body = s[i+1:dst]
+        got_y = False
+        x = chunk.print_morphs(do_remove_punc=True).replace(chunk.morphs[0].surface,"X")
+        x += "|"
+        np.append(x)
+        # whole pic
+        while len(body) > 0:
+            for j in body:
+                content = j.print_morphs(do_remove_punc=True)
+                if j.morphs[0].pos == "名詞":
+                    if got_y == False:
+                        content = j.print_morphs(do_remove_punc=True).replace(j.morphs[0].surface,"Y")
+                        got_y = True
+                # add rest of content after y appear
+                if got_y == True:
+                    np.append(content)
+
+            np.append("|{}".format(s[-1].print_morphs(do_remove_punc=True)))
+            if np not in bags:
+                bags.append(np)
+            del body[0]
+            got_y = False
+            np = []
+            np.append(x)
+        np = []
+        while len(inside_body) > 0:
+            for b in inside_body:
+                if b.morphs[0].pos != "名詞":
+                    del inside_body[0]
+                    break
+                new_body = inside_body[1:]
+                for i,n in enumerate(new_body):
+                    if len(np) == 0:
+                        np.append(b.print_morphs(do_remove_punc=True).replace(b.morphs[0].surface,"X"))
+                    if n.morphs[0].pos == "名詞":
+                        if "Y" not in np:
+                            np.append("Y")
+                        add_unique(bags,np)
+                        if i == len(new_body) - 1:
+                            break
+                        # reset after add y
+                        np = []
+                        np.append(b.print_morphs(do_remove_punc=True).replace(b.morphs[0].surface,"X"))
+                        for w in new_body[:i]:
+                            np.append(w.print_morphs(do_remove_punc=True))
+
+                    np.append(n.print_morphs(do_remove_punc=True))
+
+                add_unique(bags,np)
+            if len(inside_body) > 0:
+                del inside_body[0]
+            np = []
+
+for b in bags:
+    print("{}".format(" ->".join(b)))
