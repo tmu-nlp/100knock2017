@@ -1,0 +1,41 @@
+$ python knock45.py | sort | uniq -c | sort | tail -n 10
+ 157 する	が
+ 184 いる	に
+ 196 する	と
+ 260 する	に
+ 263 いる	を
+ 326 思う	と
+ 336 なる	に
+ 379 ある	が
+ 709 する	を
+ 819 云う	と
+
+$ python knock45.py | grep する | cut -f2 | sort | uniq -c | sort | tail -n 10
+  37 で を
+  50 で
+  62 が を
+  63 に を
+  73 を に
+  79 と を
+ 157 が
+ 212 と
+ 277 に
+ 747 を
+
+$ python knock45.py | grep 見る | cut -f2 | sort | uniq -c | sort | tail -n 10
+   3 から を
+   4 で を
+   4 を に
+   5 で
+   7 が を
+   9 に
+  11 が
+  18 から
+  20 と
+ 125 を
+
+$ python knock45.py | grep 与える | cut -f2 | sort | uniq -c | sort
+   1 と を
+   1 として
+   5 を
+   9 に を
