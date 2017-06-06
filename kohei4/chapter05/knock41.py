@@ -11,21 +11,20 @@ import re
 #* 0 2D 0/1 -1.911675
 
 
-class Morph():
+class Morph:
     def __init__(self, surface, base, pos, pos1 ):
         self.surface = surface
         self.base = base
         self.pos = pos
         self.pos1 = pos1
 
-class Chunk():
+class Chunk:
     def __init__(self):
         self.morphs = []
         self.dst = -1
         self.srcs = []
 
     def __str__(self):
-        '''オブジェクトの文字列表現'''
         surface = ''
         for morph in self.morphs:
             surface += morph.surface
@@ -44,12 +43,14 @@ with open('./neko.txt.cabocha','r') as mcb:
         #line = mcb.readline()
         #print(line)
         if line == 'EOS\n':
-                # Chunkのリストを返す
+
                 if len(chunks) > 0:
 
-                    # chunksをkeyでソートし、valueのみ取り出し
                     sorted_tuple = sorted(chunks.items(), key=lambda x: x[0])
+                    'order by IDX'
                     chunk_list.append(list(zip(*sorted_tuple))[1])
+                    'after sort, no ID, just Class Chunk list'
+                    #print(*list(zip(*sorted_tuple))[1])
                     chunks.clear()
 
                 else:
@@ -58,20 +59,24 @@ with open('./neko.txt.cabocha','r') as mcb:
 
 
         elif line[0] == '*' :
+            'line is str'
             cabo = line.split(' ')
+            'cabo is list'
             idx = int(cabo[1])
             dst = int(re.search(r'(.*?)D', cabo[2]).group(1))
+            'dst is just before D'
             #print(idx)
 
             if idx not in chunks:
                 chunks[idx] = Chunk()
+            'no IDX then connect to Class through DIC'
             chunks[idx].dst = dst
-
+            'register dst for the idx'
             if dst != -1:
                 if dst not in chunks:
                     chunks[dst] = Chunk()
                 chunks[dst].srcs.append(idx)
-
+            'no chunks[dst], create and register idx as srcs'
 
         else:
             #print(st_morph_list)
@@ -81,6 +86,7 @@ with open('./neko.txt.cabocha','r') as mcb:
         #    print(line_l, file = debug)
         # print(line_l)
             chunks[idx].morphs.append(Morph(line_l[0],line_l[7],line_l[1],line_l[2]))
+            'there should be chunks[idx] '
             #print(st_morph_list)
 
 
