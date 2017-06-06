@@ -75,7 +75,8 @@ if __name__ == '__main__':
                             str_list.append(make_str(lines_main[dst_print]))
 #                            print('{} append'.format(dst_print))
                         dst_print = int(lines_main[dst_print].get_dst())
-                        if dst_print == -1 :
+#                        if dst_print == -1 :
+                        if flag_back == 2:
                             break
                     str_print = ' -> '.join(str_list)
                     str_print = str_print.replace('-> | ->','|')

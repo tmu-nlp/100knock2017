@@ -10,8 +10,9 @@ def make_str(morph_use):
 
 if __name__ == '__main__':
     edges = []
+    s = int(input('何行目の係り受け木を出力しますか >>'))
     for i,line_main in enumerate(make_chank()):
-        if i == 7:
+        if i == s-1:
             lines_main = []
             for j in range(len(line_main)):
                 lines_main.append(line_main[j])
@@ -23,3 +24,4 @@ if __name__ == '__main__':
                     edges.append((str2,str1))
     graph = pydot.graph_from_edges(edges, directed=True)
     graph.write_png('graph.png')
+    print('出力しました(graph.png)')
