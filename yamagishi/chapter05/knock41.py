@@ -43,6 +43,9 @@ class Chunk:
     def has_noun(self):
         return any(morph.get_pos() == '名詞' for morph in self.morphs)
 
+    def has_verb(self):
+        return any(morph.get_pos() == '動詞' for morph in self.morphs)
+
     def append_morph(self, morph):
         self.morphs.append(morph)
 
