@@ -27,9 +27,11 @@ for line in get_neko_list():
                 j_dst = line[i].get_dst()
                 for count, dst in enumerate(search_path(line, i, j_path[0])):
                     answer.append(line[dst].get_word_only() if count > 0 else line[dst].get_change_char('X'))
-                # 最後にappendした文節はjなので、jに含まれる名詞をYに変えるための処理をする
                 answer.pop()
-                answer.append(line[dst].get_change_char('Y'))
+                answer.append('Y')
+                # 本当は下の方が正しいと思うけど、例が変なので……
+                # 最後にappendした文節はjなので、jに含まれる名詞をYに変えるための処理をする
+                #answer.append(line[dst].get_change_char('Y'))
                 print(' -> '.join(answer))
 
             # そうでないとき、文節iと文節jはある地点kで合流するため、|で繋ぐ必要がある
