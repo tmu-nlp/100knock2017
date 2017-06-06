@@ -68,7 +68,3 @@ if __name__ == '__main__':
                 for temp_path in make_paths(line):
                     temp_paths.append(temp_path)
                 make_XY_paths(temp_paths, data_out)
-
-# 参考 #
-# 再帰構造
-# return や yield は一つの関数に必ず一つなければならず、ある条件に達したときのみ変数を返したい場合は、yield と yield from を駆使して、ある条件のときのみ print のような表現を実装する。
