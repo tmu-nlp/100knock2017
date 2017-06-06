@@ -15,4 +15,4 @@ for line in get_neko_list():
             if src_morph[-1].get_pos1() =='格助詞':
                 particles.append(src_morph[-1].get_base())
         if len(particles) > 0:
-            print('{}\t{}'.format(verb, ' '.join(particles)))
+            print('{}\t{}'.format(verb, ' '.join(sorted(particles))))
