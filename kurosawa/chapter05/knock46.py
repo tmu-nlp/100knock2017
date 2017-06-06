@@ -18,8 +18,9 @@ def pos_check(morph_use):
     return morph_print.get_base(),0
 
 if __name__ == '__main__':
-    dst_list = defaultdict(list)
-    for line_main in make_chank():
+    for i,line_main in enumerate(make_chank()):
+#        print('-----{}行目-----'.format(i))
+        dst_list = defaultdict(list)
         lines_main = []
         for j in range(len(line_main)):
             lines_main.append(line_main[j])
@@ -33,14 +34,14 @@ if __name__ == '__main__':
                 str2,flag2 = pos_check(lines_main[dst_print])
                 if flag1 == 1 and flag2 == 2:
                     dst_list[str2].append((str1,str1_1))
-    for v,list_ in dst_list.items():
-        str1_list = []
-        str1_1_list = []
-        for i in range(len(list_)):
-            str1_, str1_1_ = list_[i]
-            str1_list.append(str1_)
-            str1_1_list.append(str1_1_)
-        str_01 = ' '.join(str1_list)
-        str_01_1 = ' '.join(str1_1_list)
-        print('{}\t{}\t{}'.format(v,str_01,str_01_1))
+        for v,list_ in dst_list.items():
+            str1_list = []
+            str1_1_list = []
+            for l in range(len(list_)):
+                str1_, str1_1_ = list_[l]
+                str1_list.append(str1_)
+                str1_1_list.append(str1_1_)
+            str_01 = ' '.join(str1_list)
+            str_01_1 = ' '.join(str1_1_list)
+            print('{}\t{}\t{}'.format(v,str_01,str_01_1))
 
