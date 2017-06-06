@@ -9,7 +9,7 @@ class Chunk:
         self.srcs = srcs
 
     def __str__(self):
-        return 'dst: {}, srcs: {}, string: {}'.format(self.dst, self.srcs, self.get_string())
+        return 'dst: {}, string: {}'.format(self.dst, self.get_string())
 
     def get_string(self):
         return ' '.join([morph.get_surface() for morph in self.morphs])
@@ -43,6 +43,9 @@ class Chunk:
     def has_noun(self):
         return any(morph.get_pos() == '名詞' for morph in self.morphs)
 
+    def has_verb(self):
+        return any(morph.get_pos() == '動詞' for morph in self.morphs)
+
     def append_morph(self, morph):
         self.morphs.append(morph)
 
@@ -75,9 +78,8 @@ def get_neko_list():
 if __name__ == '__main__':
     sentence = list()
     for i, line in enumerate(get_neko_list()):
-        if i == 7:
+        if i == 5:
             for chunk in line:
                 print(chunk)
                 sentence.append(chunk.get_string())
-            print(' '.join(sentence))
             break
