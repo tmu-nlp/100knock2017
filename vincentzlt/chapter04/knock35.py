@@ -62,8 +62,8 @@ def get_NNN(mecab_list):
 
 if __name__ == "__main__":
     word_list=get_NNN(get_wordlist("./neko.txt.mecab"))
-    for nn in word_list:
-        print("".join(nn))
+    for nn in sorted(word_list,key=lambda s:len(s)):
+        print(" ".join(nn))
     
 
 
