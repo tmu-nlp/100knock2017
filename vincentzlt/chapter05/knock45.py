@@ -3,7 +3,7 @@
 
 # In[1]:
 
-import sys,pprint,pydot
+import sys,pprint
 
 
 # In[14]:

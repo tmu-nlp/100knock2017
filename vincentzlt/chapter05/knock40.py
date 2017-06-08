@@ -59,11 +59,12 @@ class cabocha_tree(object):
     def print_tree_dict(self):
         pprint.pprint(self.tree_d)
 
-    def print_knock41(self):
+    def print_knock40(self):
         for p in self.tree_d:
-            print("dst:\t"+)
+            print("dst: "+str(p),end='\t')
             for w in self.tree_d[p]["words"]:
-                print(self.tree_d[p]["words"][w]['原形'])
+                print(self.tree_d[p]["words"][w]['原形'],end='')
+            print()
 
 
 # In[8]:
