@@ -26,8 +26,10 @@ for line in chunk_list:
                 flag_first = False
             if morph.getPos() == '動詞':
                 flag_v = True
-            if morph.getPos() == '助詞' and morph.getPos1() == '格助詞':
+            if morph.getPos() == '助詞' :
                 flag_p = True
+            if morph.getPos() == '記号':
+                continue
             temp_phrase += morph.getSurface()  
         if morph.getPos() == '名詞':
             flag_noun_s = False
@@ -47,18 +49,18 @@ for line in chunk_list:
         if not phrase_dict[i][4]:
             continue 
         #ここから先は1文中にサ変接続名詞+'を'が存在
-        #名詞の係り先が動詞かどうか
+        #この名詞の係り先が動詞かどうか
         dst_n =  int(word.getDst())
         if not phrase_dict[dst_n][1]:
             break
         #サ変名詞+'を'+動詞の表層系を入れる
         v_morphs = phrase_dict[dst_n][0].getMorphs()
         for morph in v_morphs:
-            if morph.getPos() == '動詞':
+            if morph.getPos() == '動詞':    #最左動詞のみ使う
                 v_surf = morph.getBase()
                 break
         v_surf = phrase_dict[i][3] + v_surf 
-        #ここから先は動詞に対しての係り元を追っていく
+        #ここから先は動詞(述語)に対しての係り元を追っていく
         srcs = phrase_dict[dst_n][0].getSrcs()
         """
         c_list : 係り元助詞リスト,case
@@ -72,19 +74,33 @@ for line in chunk_list:
                 continue
             if not phrase_dict[src][2]:
                 continue
-            p_depend_list.append(phrase_dict[src][3])
+            depend_phrase = phrase_dict[src][3]    
+            #p_depend_list.append(phrase_dict[src][3])
             source = phrase_dict[src][0].getMorphs()
             for s in reversed(source):
                 if s.getPos() == '助詞':
-                    c_depend_list.append(s.getSurface())
+                    depend_case = s.getSurface()
+                    #c_depend_list.append(s.getSurface())
                     break
-            v_base[v_surf].append(c_depend_list)
-            v_base[v_surf].append(p_depend_list)
-        for key, value in v_base.items():
-            print('{}'.format(key), end='\t')
-            for p in value[0]:
-                print('{} '.format(p), end='')
-            print('\t', end='')
-            for p in value[1]:
-                print('{} '.format(p), end='')
-            print()   
+            depend_tuple = (depend_case, depend_phrase)
+            v_base[v_surf].append(depend_tuple)        
+            #v_base[v_surf].append(c_depend_list)
+            #v_base[v_surf].append(p_depend_list)
+    for key, value in v_base.items():
+        c_list = ''
+        d_list = ''
+        value_s = sorted(value)
+        for w_tuple in value_s:
+            c_list += w_tuple[0] + ' '
+            d_list += w_tuple[1] + ' '
+        print('{}\t{}\t{}'.format(key,c_list,d_list))
+    """        
+    for key, value in v_base.items():
+        print('{}'.format(key), end='\t')
+        for p_0 in value[0]:
+            print('{} '.format(p_0), end='')
+        print('\t', end='')
+        for p_1 in value[1]:
+            print('{} '.format(p_1), end='')
+        print() 
+    """    

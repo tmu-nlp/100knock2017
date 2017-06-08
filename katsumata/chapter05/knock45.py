@@ -22,9 +22,30 @@ for line in chunk_list:
         phrase_dict[i].append(flag_p)
     v_base = defaultdict(list)
     for i,word in enumerate(line):
+        if not phrase_dict[i][1]:
+            continue
+        #以下は動詞を見ている  
         morphs = word.getMorphs()
         dst = word.getDst()
         srcs = word.getSrcs()
+        #今見ている動詞を確認
+        for morph in morphs:
+            if morph.getPos() == '動詞':
+                v_b = morph.getBase()
+                break   #最左動詞
+        #ここから先は動詞に対しての係り元を追っていく
+        for src in srcs:
+            src = int(src)
+            if not phrase_dict[src][2]:
+                continue
+            source = phrase_dict[src][0].getMorphs()
+            for s in reversed(source):
+                if s.getPos() == '助詞':
+                    v_base[v_b].append(s.getSurface())
+                    break   #最右助詞
+
+                
+        """
         for src in srcs:
             flag_left_v = False
             src = int(src)
@@ -43,9 +64,10 @@ for line in chunk_list:
                                 v_base[morph.getBase()].append(m.getSurface())
                                 flag_right_c = True
                             #print ('係り元の形態素解析が終了')        
-                        flag_left_v = True        
+                        flag_left_v = True
+        """                
     for key, value in v_base.items():
         print('{}'.format(key), end='\t')
-        for p in value:
+        for p in sorted(value):
             print('{} '.format(p), end='')
         print()   
