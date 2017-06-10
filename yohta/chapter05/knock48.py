@@ -31,7 +31,11 @@ for line in func41():
         nouns.append(b.getSurword())
 
         while dst != -1:
+#        for i in range(len(nouns)):
+#            if dst != -1:
             nouns.append(line[dst].getSurword())
             dst = line[dst].getDst()
-        print(' -> '.join(nouns))
+#                i += 1
+        if nouns[0] != '':
+            print(' -> '.join(nouns))
     counter += 1

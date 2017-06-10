@@ -10,7 +10,8 @@ class Morph:
         self._tok_body = tok_surface
         self._tok_pos = self._tok_list[0]
         self._tok_pos1 = self._tok_list[1]
-
+        self._temp_body = None
+        
     @property
     def feature(self):
         return self._tok_list
@@ -25,11 +26,10 @@ class Morph:
 
     @property
     def token_body_exclude_symbol(self):
-        # print(self._tok_pos)
         if self._tok_pos != '記号':
             return self._tok_body
         else:
-            return "sym"#for debug
+            return " <sym> "#for debug
 
     @property
     def sentence_id(self):
@@ -55,3 +55,12 @@ class Morph:
     def token_pos1(self):
         return self._tok_pos1
 
+    def subX(self, x):
+        if self._temp_body is None:
+            self._temp_body = self._tok_body
+            self._tok_body = x
+
+    def revert_subX(self):
+        if self._temp_body is not None:
+            self._tok_body = self._temp_body
+            self._temp_body = None
