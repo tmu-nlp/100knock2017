@@ -3,9 +3,9 @@ import xml.etree.ElementTree as ET
 def make_corenlp_word(data_in_path, data_out):
     tree = ET.parse(data_in_path)
     root = tree.getroot()
-    for sentence in root.iter('sentence'):
-        for token in sentence.iter('token'):
-            print(token.find('word').text, file=data_out)
+    for sentence in root.findall(".//sentences/sentence"):
+        for word in sentence.findall(".//tokens/*/word"):
+            print(word.text, file=data_out)
         print('', file=data_out)
 
 if __name__ == '__main__':
