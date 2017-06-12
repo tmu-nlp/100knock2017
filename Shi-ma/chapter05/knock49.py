@@ -20,7 +20,8 @@ def print_IJ(I, J, data_out):
     if len(I) >= 2:
         I_txt += ' -> '
         I_txt += ' -> '.join([each_I.get_phrase_txt() for each_I in I[1:]])
-    J_txt = J.get_phrase_XY('Y')
+    J_txt = 'Y'
+    # J_txt = J.get_phrase_XY('Y')
     print(I_txt + ' -> ' + J_txt, file=data_out)
 
 def print_IJK(I, J, K, data_out):
@@ -67,7 +68,3 @@ if __name__ == '__main__':
                 for temp_path in make_paths(line):
                     temp_paths.append(temp_path)
                 make_XY_paths(temp_paths, data_out)
-
-# 参考 #
-# 再帰構造
-# return や yield は一つの関数に必ず一つなければならず、ある条件に達したときのみ変数を返したい場合は、yield と yield from を駆使して、ある条件のときのみ print のような表現を実装する。
