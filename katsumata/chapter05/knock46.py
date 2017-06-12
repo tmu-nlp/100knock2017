@@ -17,6 +17,8 @@ for line in chunk_list:
                 flag_v = True
             if morph.getPos() == '助詞':
                 flag_p = True
+            if morph.getPos() == '記号':
+                continue
             temp_phrase += morph.getSurface()    
         #dictはkey:文節番号,value:chunkオブジェクト,文節内に動詞があるかどうか,助詞があるかどうか
         #さらに文節内容を追加
@@ -25,12 +27,40 @@ for line in chunk_list:
         phrase_dict[i].append(flag_p)
         phrase_dict[i].append(temp_phrase)
     v_base = defaultdict(list)
-    c_depend_list = list()
-    p_depend_list = list()
+    #c_depend_list = list()
+    #p_depend_list = list()
     for i,word in enumerate(line):
+        if not phrase_dict[i][1]:
+            continue
+        #以下は動詞を見ている    
         morphs = word.getMorphs()
         dst = word.getDst()
         srcs = word.getSrcs()
+        #今見ている動詞を確認
+        for morph in morphs:
+            if morph.getPos() == '動詞':
+                v_b = morph.getBase()
+                break   #最左動詞
+        #ここから先は動詞に対しての係り元を追っていく
+        #c_depend_list = list() 
+        #p_depend_list = list()
+        for src in srcs:
+            src = int(src)
+            if not phrase_dict[src][2]:
+                continue
+            depend_phrase = phrase_dict[src][3]
+            #p_depend_list.append(phrase_dict[src][3])
+            source = phrase_dict[src][0].getMorphs()
+            for s in reversed(source):
+                if s.getPos() == '助詞':
+                    #c_depend_list.append(s.getSurface())
+                    depend_case = s.getSurface()
+                    break
+            depend_tuple = (depend_case, depend_phrase)        
+            v_base[v_b].append(depend_tuple)
+            #v_base[v_b].append(c_depend_list)
+            #v_base[v_b].append(p_depend_list)
+        """
         for src in srcs:
             flag_left_v = False
             src = int(src)
@@ -61,7 +91,27 @@ for line in chunk_list:
                         flag_left_v = True
         c_depend_list = list()
         p_depend_list = list()
-
+        """
+    for key, value in v_base.items():
+        c_list = ''
+        d_list = ''
+        print('{}'.format(key), end='\t')
+        value_s = sorted(value) 
+        for w_tuple in value_s:
+            c_list += w_tuple[0] + ' '
+            d_list += w_tuple[1] + ' '
+            #print(w[0]+' '+ w[1], end='')
+        print('{}\t{}'.format(c_list, d_list))    
+        #print()    
+        """    
+        for p_0 in value_s[0][0]:
+            print('{} '.format(p_0), end='')
+        print('\t', end='')
+        for p_1 in value_s[0][1]:
+            print('{} '.format(p_1),end='')
+        print()
+        """
+    """
     for key, value in v_base.items():
         print('{}'.format(key), end='\t')
         for p in value[0]:
@@ -69,4 +119,5 @@ for line in chunk_list:
         print('\t', end='')
         for p in value[1]:
             print('{} '.format(p), end='')
-        print()   
+        print()
+    """    

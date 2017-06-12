@@ -1,24 +1,17 @@
-import re
+import xml.etree.ElementTree as ET
 
-def make_corenlp_w_l_P(data_in):
-    word_w_l_P = []
-    pettern_word = re.compile(r'(?<=<word>).+?(?=</word>)')
-    pettern_lemma = re.compile(r'(?<=<lemma>).+?(?=</lemma>)')
-    pettern_POS = re.compile(r'(?<=<POS>).+?(?=</POS>)')
-    pettern_token_end = re.compile(r'</token>$')
-    for line in data_in:
-        if pettern_word.search(line):
-            word_w_l_P.append(pettern_word.search(line).group())
-        elif pettern_lemma.search(line):
-            word_w_l_P.append(pettern_lemma.search(line).group())
-        elif pettern_POS.search(line):
-            word_w_l_P.append(pettern_POS.search(line).group())
-        elif pettern_token_end.search(line):
-            yield word_w_l_P
-            word_w_l_P = []
+def make_corenlp_wlP(data_in_path, data_out):
+    tree = ET.parse(data_in_path)
+    root = tree.getroot()
+    for sentence in root.findall(".//sentences/sentence"):
+        for token in sentence.findall(".//token"):
+            word = token.find('word').text
+            lemma = token.find('lemma').text
+            POS = token.find('POS').text
+            print('\t'.join([word, lemma, POS]), file=data_out)
+        print('', file=data_out)
 
 if __name__ == '__main__':
-    with open('../data/nlp.txt.xml', 'r') as data_in:
-        with open('knock54_result.txt', 'w') as data_out:
-            for word_w_l_P in make_corenlp_w_l_P(data_in):
-                print('\t'.join(word_w_l_P), file=data_out)
+    with open('knock54_result.txt', 'w') as data_out:
+        data_in_path = '../data/knock50_result.txt.xml'
+        make_corenlp_wlP(data_in_path, data_out)
