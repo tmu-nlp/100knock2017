@@ -5,7 +5,7 @@ def make_corenlp_tree(data_in_path, data_out_path, num_sentence):
     tree = ET.parse(data_in_path)
     root = tree.getroot()
     i = 0
-    for dependencies in root.iter('dependencies'):
+    for dependencies in root.findall(".//dependencies"):
         if dependencies.get('type') != 'collapsed-dependencies':
             continue
         i += 1
@@ -13,7 +13,7 @@ def make_corenlp_tree(data_in_path, data_out_path, num_sentence):
             continue
         graph = pydot.Dot()
         graph.set_type('digraph')
-        for dep in dependencies.iter('dep'):
+        for dep in dependencies.findall('dep'):
             from_edge = dep.find('governor').text + ' _ ' + dep.find('governor').get('idx')
             to_edge = dep.find('dependent').text + ' _ ' + dep.find('dependent').get('idx')
             if to_edge in ',':

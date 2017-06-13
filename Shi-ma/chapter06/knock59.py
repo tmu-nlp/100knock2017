@@ -30,7 +30,7 @@ def make_NP_text(sexp_NP, data_out):
 def make_corenlp_NP_text(data_in_path, data_out):
     tree = ET.parse(data_in_path)
     root = tree.getroot()
-    for parse in root.iter('parse'):
+    for parse in root.findall('.//sentences/*/parse'):
         for sexp_NP in search_sexp_NPs(parse.text):
             make_NP_text(sexp_NP, data_out)
         print('', file=data_out)
