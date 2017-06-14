@@ -294,7 +294,7 @@ for ind, sent in enumerate(gen_sent_cabocha("./neko.txt.cabocha")):
         print("sentence {number}:".format(number=ind + 1), end="\n")
         _=Sentence(sent)
         print(_)
-        knock_41(_)
+        knock_47(_)
         #Image("./knock_44.png")
         #tt=Sentence(sent)
         #tt.phrases
