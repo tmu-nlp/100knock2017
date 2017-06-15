@@ -3,15 +3,17 @@ import re
 
 # def func59(list):
 pattern = r'^\((.*?)\s(.*)\)$'
-#文字列先頭の(
-#
+# ^\(:文字列先頭の(
+# tagはnon-greedy
+# valueはgreedy
+# \)$:文字列最後尾の)
 def func59(string,ansadd):
 #    pattern = re.compile(r'^\(\t\s)
-    match = re.match(pattern,string)
+    match = re.match(pattern,string)    #re.macth = re.compile + match ?
 #    match = pattern.match(string)
     tag = match.group(1)    #括弧のすぐ後ろを抽出
 #    print(tag)
-    value = match.group(2)
+    value = match.group(2)  #tagの後ろが\sで、その後に\(が来ないもの
 #    print(value)
     # 再帰ver
     depth = 0       # 階層の深度
@@ -48,4 +50,5 @@ if __name__ =='__main__':
         for sentence in par.iterfind('./document/sentences/sentence/parse'):
             ans = []
             func59(sentence.text.strip(), ans)
-            a_f.write('{}\n'.format(ans))
+            if ans[0] != '.':
+                a_f.write('{}\n'.format(ans))
