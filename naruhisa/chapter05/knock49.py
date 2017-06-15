@@ -16,11 +16,12 @@ for x in func2():
         for morphs in line.morphs:
             if(morphs.pos != '記号'):
                 tmp += morphs.surface
+
             if(morphs.pos == '名詞'):
                 rela_n[line.index] = True
                 verX += 'X'
                 verY += 'Y'
-            elif(morphs.pos != '名詞'):
+            elif(morphs.pos != '名詞' and morphs.pos != '記号'):
                 verX += morphs.surface
                 verY += morphs.surface
 
@@ -31,7 +32,7 @@ for x in func2():
         verY = ''
         tmp = ''
         relation[int(line.index)] = int(line.dst)
-    if count == 9:
+    if count == 9958:
         phase = 0
         for i in range(len(SURFACE)):
             for j in range(i + 1, len(SURFACE)):
