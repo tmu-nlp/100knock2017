@@ -51,4 +51,4 @@ if __name__ =='__main__':
             ans = []
             func59(sentence.text.strip(), ans)
             if ans[0] != '.':
-                a_f.write('{}\n'.format(ans))
+                a_f.write('NP:\t{}\n'.format(ans))
