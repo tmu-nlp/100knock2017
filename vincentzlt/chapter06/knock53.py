@@ -24,7 +24,7 @@ def tokenization_corenlp(f_name):
 
 # In[27]:
 if __name__=="__main__":
-    tokenization_corenlp("nlp.txt.xml")
+    tokenization_corenlp("./nlp_sentence_break.txt.xml")
 
 
 # In[10]:
