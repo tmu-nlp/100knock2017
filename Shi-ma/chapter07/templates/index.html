@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/post" method="post">
+		<p><input type="search" name="txt" size="30" placeholder="検索テキスト" required> <input type="submit" value="検索"></p>
+		<p><input type="radio" name="option" value="name" required>アーティスト名
+		<input type="radio" name="option" value="area">活動場所
+		<input type="radio" name="option" value="tags.value">タグ</p>
+	</form>
+	<p>
+		{% if flag %}
+			{% for result in results %}
+				{% for field in result %}
+					{{ field }}<br />
+				{% endfor %}
+				<hr />
+			{% endfor %}
+		{% else %}
+			{{ results }}
+		{% endif %}
+	</p>
+</body>
+</html>
