@@ -3,8 +3,8 @@ import xml.etree.ElementTree as ET
 def make_corenlp_wlP(data_in_path, data_out):
     tree = ET.parse(data_in_path)
     root = tree.getroot()
-    for sentence in root.iter('sentence'):
-        for token in sentence.iter('token'):
+    for sentence in root.findall(".//sentences/sentence"):
+        for token in sentence.findall(".//token"):
             word = token.find('word').text
             lemma = token.find('lemma').text
             POS = token.find('POS').text

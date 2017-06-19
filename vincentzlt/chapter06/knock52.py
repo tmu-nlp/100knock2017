@@ -31,9 +31,6 @@ def word_segmentation(sentence):
                 yield i.group(0)
 
 
-# In[107]:
-
-pdir(stemming)
 
 
 # In[112]:
