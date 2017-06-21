@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, request, redirect, url_for
 import pymongo
 import pprint
+import webbrowser
 
 app = Flask(__name__)
 
@@ -38,4 +39,5 @@ def post():
         return redirect(url_for('index'))
 
 if __name__ == "__main__":
+    webbrowser.open('http://127.0.0.1:5000/', new=1, autoraise=True)
     app.run()
