@@ -2,7 +2,7 @@ import redis
 import json
 import gzip
 
-file_neme = 'artist.json.gz'
+file_name = 'artist.json.gz'
 db = redis.Redis(host='localhost',port=6379, db = 0)
 
 with gzip.open(file_name, 'r') as f_p:
