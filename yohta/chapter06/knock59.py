@@ -32,7 +32,7 @@ def func59(string,ansadd):
                 word = ''   # word初期化
         else:
             # 括られていない時の空白は無視
-            if depth != 0 or ch != ' ':
+            if not (depth == 0 and ch == ' '):
                 word += ch
     # 最後の単語を追加
     if word != '':
@@ -51,4 +51,5 @@ if __name__ =='__main__':
             ans = []
             func59(sentence.text.strip(), ans)
             if ans[0] != '.':
-                a_f.write('NP:\t{}\n'.format(ans))
+                for i in range(len(ans)):
+                    a_f.write('NP:\t{}\n'.format(ans[i]))

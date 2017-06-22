@@ -16,7 +16,7 @@ def sentence_break(f_name):
         for l in subbed_line.split("\n"):
             if l:
                 yield l
-        5
+
 
 
 

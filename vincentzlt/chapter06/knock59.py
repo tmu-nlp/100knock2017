@@ -40,12 +40,5 @@ if __name__=="__main__":
     s_expression(xml_path)
 
 
-# In[ ]:
-
-
-
-
-# In[ ]:
-
 
 

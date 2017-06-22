@@ -1,0 +1,1 @@
+db.artist_info.find({"tags_value":"dance"}).limit(10).sort({name:1}).pretty()
