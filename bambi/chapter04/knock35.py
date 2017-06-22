@@ -1,7 +1,7 @@
 from knock30 import getMecab
 longest_len = 0
 container = []
-'''
+
 answer = ""
 for x in getMecab():
     if x["pos"] == "名詞":
@@ -13,12 +13,3 @@ for x in getMecab():
             answer = "".join(container)
         del container[:]
 print(answer)
-'''
-for x in getMecab():
-    if x["pos"] == "名詞":
-        container.append(x["surface"])
-    else:
-        if len(container) > 1:
-            print("".join(container))
-        del container[:]
-    
