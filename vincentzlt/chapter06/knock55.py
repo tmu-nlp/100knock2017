@@ -27,5 +27,5 @@ def named_entity_extraction(f_name):
 
 # In[35]:
 
-named_entity_extraction("nlp.txt.xml")
+named_entity_extraction("./nlp_sentence_break.txt.xml")
 

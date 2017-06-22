@@ -30,7 +30,7 @@ def pos_tagging(f_name):
 
 # In[33]:
 
-pos_tagging("nlp.txt.xml")
+pos_tagging("./nlp_sentence_break.txt.xml")
 
 
 # In[ ]:
