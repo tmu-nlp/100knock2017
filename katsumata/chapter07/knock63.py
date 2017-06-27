@@ -14,9 +14,9 @@ def make_db():
             db_tag.hset(obj['name'], 'tags', obj['tags'])
 
 if __name__ == '__main__':
-    #make_db()
+    make_db()
     input_artist = input('アーティストの名前:').encode('utf-8') 
-    #input_artist = 'Agora'.encode('utf-8')
+    input_artist = 'Agora'.encode('utf-8')
     if db_tag.hvals(input_artist) == []:
         print ('該当なし')
     else:
