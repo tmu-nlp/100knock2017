@@ -1,7 +1,7 @@
 import random
 
 if __name__ == '__main__':
-    with open('result/knock81_result.txt', 'r') as data_in, open('result/knosk82_result.txt', 'w') as data_out:
+    with open('result/knock81_result.txt', 'r') as data_in, open('result/knock82_result.txt', 'w') as data_out:
         for line in data_in:
             tokens = line.strip().split()
             for t, token in enumerate(tokens):

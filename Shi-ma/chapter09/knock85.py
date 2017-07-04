@@ -1,6 +1,7 @@
 from scipy.sparse import csr_matrix
 from scipy import io
 from sklearn.decomposition import TruncatedSVD
+from sklearn.preprocessing import normalize
 import numpy as np
 import pickle
 
@@ -9,5 +10,6 @@ if __name__ == '__main__':
 
     svd = TruncatedSVD(100)
     X_100 = svd.fit_transform(X)
+    X_100 = normalize(X_100, copy=False, norm='l2')
 
     io.savemat('result/knock85_result.mat', {'X_100':X_100})

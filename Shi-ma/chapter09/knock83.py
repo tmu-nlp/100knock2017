@@ -11,12 +11,12 @@ def create_ids(data, ids_t, ids_c):
 
 
 if __name__ == '__main__':
-    with open('result/knosk82_result.txt', 'r') as data_in:
+    with open('result/knock82_result.txt', 'r') as data_in:
         ids_t = defaultdict(lambda: len(ids_t))
         ids_c = defaultdict(lambda: len(ids_c))
         create_ids(data_in, ids_t, ids_c)
 
-    with open('result/knosk82_result.txt', 'r') as data_in, open('result/knosk83_result.dump', 'wb') as data_out:
+    with open('result/knock82_result.txt', 'r') as data_in, open('result/knock83_result.dump', 'wb') as data_out:
         N = 0
         count_t, count_c = np.zeros(len(ids_t)), np.zeros(len(ids_c))
         count_tc = defaultdict(lambda: 0)
