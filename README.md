@@ -1,5 +1,18 @@
 # 100knock2017
 
+## ＊10章91番の`単語アナロジーデータ`のリンクが切れているので，以下のコマンドでダウンロードしてください　
+
+```
+curl https://raw.githubusercontent.com/svn2github/word2vec/master/questions-words.txt > questions-words.txt
+```
+
+or 
+
+```
+wget https://raw.githubusercontent.com/svn2github/word2vec/master/questions-words.txt
+```
+
+#
 小町研2017年度新入生向け勉強会として、言語処理100本ノックに取り組みます。  
 教材URL: http://www.cl.ecei.tohoku.ac.jp/nlp100/
 
