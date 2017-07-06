@@ -155,6 +155,10 @@ if __name__ == "__main__":
     #for ii in range(5):
     unit_l = []
     for ii in range(5):
+        accuracy_s = 0
+        precision_s = 0
+        recall_s = 0
+        f_m_s = 0
         unit_l.append(all_input[ unit*ii : unit*(ii+1) ])
 
     with open('78result', 'w' ) as hh:
@@ -202,3 +206,13 @@ if __name__ == "__main__":
             accuracy, precision, recall, f_m = check_f(predicted)
             print('正解率　\t{}\n適合率　\t{}\n再現率　\t{}\nF1スコア　\t{}'.format(
                 accuracy, precision, recall, f_m),file=hh)
+            accuracy_s += accuracy
+            precision_s += precision
+            recall_s += recall
+            f_m_s += f_m
+
+
+            if jj == 4:
+                print('\nResult(averaged)', file= hh)
+                print('正解率　\t{}\n適合率　\t{}\n再現率　\t{}\nF1スコア　\t{}'.format(
+                    accuracy_s/5, precision_s/5, recall_s/5, f_m_s/5),file=hh)
