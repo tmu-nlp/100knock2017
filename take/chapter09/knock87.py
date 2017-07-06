@@ -42,15 +42,6 @@ united_states と u.sのcos 類似度を計算せよ
 print(' \n----- knock87 ----\nunited_states と u.sのcos類似度\n')
 print(cossim(Xtc_150[ids_t["united_states"]], Xtc_150[ids_t["u.s"]]))
 
-import scipy.spatial.distance
-
-usa = np.array(Xtc_150[ids_t["united_states"]])
-usb = np.array(Xtc_150[ids_t["u.s"]])
-
-print(type(usa))
-
-score = scipy.spatial.distance(usa, usb)
-print('scipy cos: ',score)
 
 
 '''
