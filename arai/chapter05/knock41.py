@@ -43,7 +43,7 @@ def cabocha_data():
                 word = word[0].split()
                 dst = int(word[2].strip('D'))
                 chunk = Chunk(dst, src_dict[int(word[1])])
-                src_dict[dst].append(word[1])
+                src_dict[dst].append(int(word[1]))
                 mlist.append(chunk)
             elif word[0] == 'EOS':
                 src_dict = defaultdict(list)

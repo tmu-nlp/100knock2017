@@ -5,7 +5,7 @@ import math
 import pickle
 
 if __name__ == '__main__':
-    with open('result/knosk83_result.dump', 'rb') as data_in:
+    with open('result/knock83_result.dump', 'rb') as data_in:
         N, ids_t, ids_c, count_t, count_c, count_tc = pickle.load(data_in)
 
     row, col, data = [list() for i in range(3)]
