@@ -40,5 +40,7 @@ if __name__ == '__main__':
     # print(reduced.shape)
     print(reduced)
     plt.scatter(reduced[:, 0], reduced[:, 1])
+    for idx, label in enumerate(c_label):
+        plt.annotate(label, (reduced[idx,0], reduced[idx,1]))
     plt.plot()
     plt.show()
