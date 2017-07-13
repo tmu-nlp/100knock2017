@@ -39,7 +39,7 @@ wget https://raw.githubusercontent.com/svn2github/word2vec/master/questions-word
 
 # Progress Graph  
 ![progress](https://github.com/tmu-nlp/100knock2017/blob/master/progress.png)  
-※ 自動更新は停止しました。グラフを更新してほしい場合は担当者に申し出てください。  
+※ 自動更新は停止しました (7/13)。グラフを更新してほしい場合は担当者に申し出てください。  
 
 ## 100knock2017 (English)  
 We will work NLP 100 knockings as the study meeting for the newcomers in 2017.  
